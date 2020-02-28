@@ -1,0 +1,170 @@
+<!-- Registration Page -->
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<title>Register Page</title>
+	<link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/>
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="../resources/css/my_style.css" rel="stylesheet">
+	<script>
+		window.onload = function(){
+				viewStudentStats('student_status', 0)
+				viewStudentStats('undergrad_select', 0)
+				viewStudentStats('grad_select', 0)
+		};
+
+		function viewStudentStats(id, toggle){
+			if(toggle == 0){
+				document.getElementById(id).style.visibility = 'hidden';
+			}else if(toggle == 1){
+				document.getElementById(id).style.visibility = 'visible';
+			}
+		} 
+	</script>
+</head>
+<body >
+	
+	<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Registration Page Banner for CU Football">
+	<br>
+	<br>
+	<div class="container">
+		<style>
+			#regform{
+				display:block;
+				margin-left: auto;
+				margin-right:auto;
+				max-width:650px;
+			}
+			#regform input{
+				width:100%;
+			}
+			#regform td{font-weight: bold;}
+			#regform tr.spacer{height:25px;}
+			#regform .btn-group-toggle {
+				padding-right:10%;
+				float:right;
+			}
+		</style>
+		<form id="regform" action="">
+			<table style="width:100%;">
+				<tr>
+					<th colspan="1">Full Name: </th>
+					<td colspan="2"><input type="text" name="full_name" placeholder="First and Last" /></td>
+				</tr>
+				<tr class="spacer"></tr>
+				<tr>
+					<th colspan="1">Email:</th>
+					<td colspan="2">
+						<input type="email" name="email" placeholder="email@colorado.edu" />
+					</td>
+				</tr>
+				<tr class="spacer"></tr>
+				<tr>
+					<th colspan="1">Password:</th>
+					<td colspan="2">
+						<input type="password" name="password" placeholder="password" />
+					</td>
+				</tr>
+				<tr class="spacer"></tr>
+				<tr>
+					<th colspan="1">Password: </th>
+					<td colspan="2">
+						<input type="password" name="password_repeat" placeholder="password (repeat)" />
+					</td>
+				</tr>
+				<tr class="spacer"></tr>
+				<tr>
+					<td colspan="3">
+						Alumni:
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-secondary"> 
+								<input type="radio" name="is_alumni_yes" />yes
+
+							</label>
+
+							<label class="btn btn-secondary">
+								<input type="radio" name="is_alumni_no" />no
+							</label>
+						</div>
+					</td>
+				</tr>
+
+				<tr class="spacer"></tr>
+				<tr>
+					<td colspan="3">CU Student:
+						<div class="btn-group btn-group-toggle" >
+							<label class="btn btn-secondary"> 
+								<input  type="radio" name="is_student_yes" onclick="viewStudentStats('student_status', 1);" />yes
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="is_student_no" onclick="viewStudentStats('student_status', 0);viewStudentStats('grad_select',0);viewStudentStats('undergrad_select',0);" />no
+							</label>
+						</div>
+					</td>
+					</tr>
+				<tr class="spacer"></tr>
+					<tr>
+					<td colspan="3">
+				<div id ="student_status">Status:
+						<div class="btn-group btn-group-toggle">
+							<label class="btn btn-secondary"> 
+							<input  onclick="viewStudentStats('undergrad_select',1);viewStudentStats('grad_select',0);" type="radio" name="is_undergrad" >Undergrad</input>
+							</label>
+							<label class="btn btn-secondary">
+								<input  onclick="viewStudentStats('undergrad_select',0);viewStudentStats('grad_select',1);" type="radio" name="is_grad" />Graduate
+							</label>
+						</div>
+						<br>
+						<br>
+						
+						<select class="mdb-select md-form" id="undergrad_select" style="width:100%;">
+							<option value="1">Freshman</option>
+							<option value="2">Sophmore</option>
+							<option value="3">Junior</option>
+							<option value="4">Senior</option>
+						</select>
+						<select class="mdb-select md-form" id="grad_select" style="width:100%;">
+							<option value="1">MA</option>
+							<option value="2">MBA</option>
+							<option value="3">PhD</option>
+						</select>
+					</div>
+					</td>
+				</tr>
+				<tr class="spacer"></tr>
+				
+			</div>
+				<tr class="spacer"></tr>
+				<tr>
+					<td colspan="3">
+						<button  type="submit"class="btn btn-primary btn-block" >Submit!</button>
+					</td>
+				</tr>
+			</table>
+						<!--
+				Todo: Create a form with the following fields:
+					1. Name Text Field
+					2. Email Text Field
+					3. Password Text Field
+					4. Password Confirmation Text Field
+					5. Email Text Field
+					6. CU Boulder Alumni Radio Button
+					7. CU Boulder Student Radio Button
+					8. CU Boulder Undergrad/Grad Radio Button
+					9. Undergraduate Select (Freshman-Senior)
+					10. Graduate Select (MA, MBA, PhD)
+					11. Submit Button (links to home page)
+
+
+				-->
+			</form>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	</body>
+	</html>

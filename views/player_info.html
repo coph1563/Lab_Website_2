@@ -1,0 +1,131 @@
+<!-- Player Information Page -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>2018 Player Info</title>
+	<link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/>
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">  
+	<link href="../resources/css/my_style.css" rel="stylesheet">
+	<script>
+		var players = [{name:"Jon Doe",year:"Sophmore", major:"Astro. Physics", img_src:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg", games_payed:8, passing_yards:192, avg_passing_yards:11, rushing_yards:100, avg_rushing_yards:90, recieving_yards:50, avg_recieving_yards:10},
+		{name:"Richard Richy",year:"Freshman", major:"Computer Science",img_src:"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nature-quotes-1557340276.jpg?crop=0.666xw:1.00xh;0.168xw,0&resize=640:*", games_payed:7, passing_yards:462, avg_passing_yards:45, rushing_yards:200, avg_rushing_yards:120, recieving_yards:60, avg_recieving_yards:6},
+		{name:"Billy Joe",year:"Junior", major:"Physics",img_src:"https://natgeo.imgix.net/factsheets/thumbnails/01-balance-of-nature.adapt.jpg?auto=compress,format&w=1600&h=900&fit=crop", games_payed:4, passing_yards:342, avg_passing_yards:23, rushing_yards:430, avg_rushing_yards:50, recieving_yards:54, avg_recieving_yards:13},
+		{name:"Maze the Man",year:"Senior", major:"Business",img_src:"https://scx1.b-cdn.net/csz/news/800/2019/1-nature.jpg", games_payed:3, passing_yards:132, avg_passing_yards:64, rushing_yards:360, avg_rushing_yards:80, recieving_yards:20, avg_recieving_yards:35}];
+		window.onload = function(){
+			loadPlayersPage();
+		}
+		function loadPlayersPage(){
+			for(var i =0; i< players.length; i++){
+				document.getElementById('dropmenu_div').innerHTML += "<a onclick='switchPlayersPage("+i+")' class='dropdown-item' href='#'>"+players[i].name+"</a>";
+				
+			}
+		}
+		function switchPlayersPage(i){
+			document.getElementById('p_year').innerHTML = players[i].year;
+			document.getElementById('p_major').innerHTML = players[i].major;
+			document.getElementById('g_played').innerHTML = players[i].games_payed;
+			document.getElementById('player_img').src = players[i].img_src;
+			document.getElementById('p_yards').innerHTML = "Passing Yards: " + players[i].passing_yards;
+			document.getElementById('r_yards').innerHTML = "Rushing Yards: " + players[i].rushing_yards;
+			document.getElementById('rec_yards').innerHTML = "Receiving Yards: " + players[i].recieving_yards;
+			document.getElementById('avg_p_yards').innerHTML = "Avg. Passing Yards: " +players[i].avg_passing_yards;
+			document.getElementById('avg_r_yards').innerHTML = "Avg. Rushing Yards: " + players[i].avg_rushing_yards;
+			document.getElementById('avg_rec_yards').innerHTML = "Avg. Receiving Yards: "+ players[i].avg_recieving_yards;
+		}
+	</script>
+  </head>
+  <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="home.html">
+		<img class="rounded-circle" src="../resources/img/cu_boulder_logo.jpg" alt="" width="30" height="30">
+	  </a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+		 <li class="nav-item">
+			<a class="nav-link" href="home.html">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="team_stats.html">Season Stats <span class="sr-only">(current)</span></a>
+		  </li>
+		  <li class="nav-item active">
+			<a class="nav-link" href="player_info.html">Player Information</a>
+		  </li>
+		</ul>
+		<div class="form-inline my-2 my-lg-0">
+			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+		</div>
+	  </div>
+	</nav>
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-4">
+				<!-- 
+					Todo: This section will hold a Bootstrap Card containing
+						   a demo image (temp_image.svg) and a Bootstrap Dropdown menu
+						   to allow the user to select between 3 temp players (switching between
+						   the players will be implemented in a future lab).
+				-->
+				<div class="card">
+					<img id="player_img" class="card-img-top" src="../resources/img/temp_image.svg" style="margin-bottom:5px;"/>
+
+					<div class="dropdown">
+  					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select a Player </button>
+  					<div id="dropmenu_div" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-8">
+				<!-- 
+					Todo: This section will hold a table with a temp player's information
+					
+					|  Year                |  Junior                  |
+					|  Major               |  History                 |
+					|  Games Played        |  32                      |
+					|  Passing Yards: 855  |  Avg. Passing Yards: 26  |
+					|  Rushing Yards: 378  |  Avg. Rushing Yards: 12  |
+					|  Receiving Yards: 57 |  Avg. Receiving Yards: 2 |
+				-->
+				<table class="table">
+					<tr>
+						<th>Year</th>
+						<td id="p_year" >...</td>
+
+					</tr>
+					<tr><th >Major</th>
+						<td  colspan="1" id="p_major" >...</td>
+					</tr>
+					<tr>
+						<th>Games Played</th>
+						<td id="g_played">...</td>
+					</tr>
+					<tr>
+						<td id="p_yards" >Passing Yards: ...</td>
+						<td id="avg_p_yards">Avg. Passing Yards: ...</td>
+					</tr>
+					<tr>
+						<td id="r_yards" >Rushing Yards: ...</td>
+						<td id="avg_r_yards" >Avg. Rushing Yards: ...</td>
+					</tr>
+					<tr>
+						<td id="rec_yards" >Recieving Yards: ...</td>
+						<td id="avg_rec_yards" >Avg.Recieving YArds: ...</td>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

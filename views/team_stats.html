@@ -1,0 +1,151 @@
+<!-- Team Stats Page -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>2018 Season Stats</title>
+	<link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/>
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="../resources/css/my_style.css" rel="stylesheet">
+  </head>
+  <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="home.html">
+		<img class="rounded-circle" src="../resources/img/cu_boulder_logo.jpg" alt="" width="30" height="30">
+	  </a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+		  <li class="nav-item">
+			<a class="nav-link" href="home.html">Home</a>
+		  </li>
+		  <li class="nav-item active">
+			<a class="nav-link" href="team_stats.html">Season Stats</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="player_info.html">Player Information</a>
+		  </li>
+		</ul>
+		<div class="form-inline my-2 my-lg-0">
+			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+		</div>
+	  </div>
+	</nav>
+	<div class="container">
+	<style>
+		table{
+		text-align :center;
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		loadStatsPage();
+	};
+	function loadStatsPage(){
+		var stats_table = document.getElementById("stats_table");
+		var r_table = document.getElementById("r_table");//Retrieve our table element
+		var row_counter;//Keeps track of our row index
+		var col_counter;//Keeps track of our column index
+		var cell_value;
+		var wins = 0;
+		var loses = 0;
+		for(row_counter = 2; row_counter < stats_table.rows.length; row_counter++)
+		{//Outer for loop iterates over each row
+				//cell_value = table.rows[row_counter].cells[col_counter].innerHTML;//Read in a cells current value
+				//cell_value = parseInt(cell_value) + 2;//Increase the cell's value by 2
+				//table.rows[row_counter].cells[col_counter].innerHTML =
+				var homescore = parseInt(stats_table.rows[row_counter].cells[2].innerHTML);
+				var oppscore = parseInt(stats_table.rows[row_counter].cells[3].innerHTML);
+				if( homescore > oppscore ){
+					stats_table.rows[row_counter].cells[4].innerHTML = 'CU Boulder';
+					wins++;
+				}else if( homescore<oppscore){
+					stats_table.rows[row_counter].cells[4].innerHTML = stats_table.rows[row_counter].cells[1].innerHTML;
+					loses++;
+				}
+		}
+		r_table.rows[1].cells[0].innerHTML = wins;
+		r_table.rows[1].cells[1].innerHTML = loses;
+	}
+	</script>
+		<div class="jumbotron" style="margin-top:15px;">
+			<h1>Fall 2018 Stats</h1>
+			<p> Detailed information on how the Buffs are doing in the 2018 Football Season!</p>
+		</div>
+		<table id="stats_table" class="table" style="width:90%;margin-left:auto;margin-right:auto;">
+		<thead class="thead-dark">
+			<tr>
+				<th colspan=2></th>
+				<th colspan=2>Score</th>
+				<th colspan=1></th>
+			</tr>
+			<tr>
+				<th>Game Date</th>
+				<th>Opposing Team Name</th>
+				<th>Home Score</th>
+				<th>Opp. Score</th>
+				<th>Winner</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr>
+
+				<td>Aug 31, 2018</td>
+				<td>Colorado state</td>
+				<td>45</td>
+				<td>13</td>
+				<td>Cu Boulder</td>
+				
+			</tr>
+			<tr>
+
+				<td>Sept 8, 2018</td>
+				<td>Nebraska</td>
+				<td>33</td>
+				<td>48</td>
+				<td>Cu Boulder</td>
+				
+			</tr>
+			<tr>
+
+				<td>Sept 15,2018</td>
+				<td>New Hampshire</td>
+				<td>45</td>
+				<td>14</td>
+				<td>Cu Boulder</td>
+				
+			</tr>
+		</tbody>
+		</table>
+		<br>
+		<br>
+		<table id="r_table" style="width:50%;margin-left:auto;margin-right:auto;" class="table">
+
+		<thead class="thead-dark">
+			<tr>
+				<th>
+					Wins
+				</th>
+				<th>Loses</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>-1</td>
+				<td>-1</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
